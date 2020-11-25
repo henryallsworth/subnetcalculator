@@ -80,7 +80,7 @@ function recreateTables()
   /* Create the bookmark hyperlink */
   var link = document.getElementById('saveLink');
   if (link) {
-    link.href = 'subnets.html?network='+inet_ntoa(curNetwork)+'&mask='+curMask+'&division='+binToAscii(nodeToString(rootSubnet));
+    link.href = 'index.html?network='+inet_ntoa(curNetwork)+'&mask='+curMask+'&division='+binToAscii(nodeToString(rootSubnet));
   }
 }
 
@@ -537,7 +537,7 @@ P		{
 </form>
 
 <p>Click below to split and join subnets.<br>
-If you wish to save this subnetting for later, bookmark <a href="subnets.html" id="saveLink">this hyperlink</a>.</p>
+If you wish to save this subnetting for later, bookmark <a href="index.html" id="saveLink">this hyperlink</a>.</p>
 
 </td>
 <td align="right">
