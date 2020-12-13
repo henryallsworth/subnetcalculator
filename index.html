@@ -7,28 +7,40 @@
 <link href="css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 </head>
 <body>
-<table width="100%">
+<h1>Visual Subnet Calculator</h1>
+<p>Enter the network you wish to subnet.</p>
+
+<div class="form-floating mb-3">
+  <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+  <label for="floatingInput">Email address</label>
+</div>
+<div class="form-floating">
+  <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+  <label for="floatingPassword">Password</label>
+</div>
+
+<table class="table">
 <tr valign=top>
 <td>
 
-<h1>Visual Subnet Calculator</h1>
 
-<p>Enter the network you wish to subnet:</p>
 
 <form name="calc" onsubmit="updateNetwork(); return false;">
 
-<table cellspacing="0">
-<tr>
-<td class="label">Network Address</td>
-<td class="label">Mask bits</td>
-</tr>
-<tr>
-<td><input type="text" name="network" size="15" maxlength="15" value="192.168.0.0"></td>
-<td>/<input type="text" name="netbits" size="2" maxlength="2" value="16"></td>
-<td><input type="submit" value="Update">
-<input type="button" value="Reset" onclick="if (confirm('This will reset all subnet divisions you have made. Proceed?')) startOver();">
-</td>
-</tr>
+<table class="table">
+  <thead>
+    <tr>
+      <td class="label">Network Address</td>
+      <td class="label">Mask bits</td>
+    </tr>
+    <tr>
+      <td><input type="text" name="network" size="15" maxlength="15" value="192.168.0.0"></td>
+      <td>/<input type="text" name="netbits" size="2" maxlength="2" value="16"></td>
+      <td><input type="submit" value="Update">
+        <input type="button" value="Reset" onclick="if (confirm('This will reset all subnet divisions you have made. Proceed?')) startOver();">
+      </td>
+    </tr>
+  </thead>     
 </table>
 
 <p>Show columns: 
