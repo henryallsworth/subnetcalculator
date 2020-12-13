@@ -1,26 +1,26 @@
 
 H1		{
-    font-family: Arial, Verdana, sans-serif;
+    font-family: Verdana, Arial, sans-serif;
     font-size: 18pt;
   }
   
   BODY		{
-    font-family: Arial, Verdana, sans-serif;
+    font-family: Verdana, Arial, sans-serif;
   }
   
   P		{
-    font-family: Arial, Verdana, sans-serif;
+    font-family: Verdana, Arial, sans-serif;
     font-size: 75%;
   }
   
   
   .label		{
-    font-family: Arial, Verdana, sans-serif;
+    font-family: Verdana, Arial, sans-serif;
     font-size: 60%;
   }
   
   .calc {
-    font-family: Arial, Verdana, sans-serif;
+    font-family: Verdana, Arial, sans-serif;
     font-size: 80%;
     border-collapse: collapse; 
   }
