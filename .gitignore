@@ -1,4 +1,2 @@
-# ignore log files and databases
-*.log
-*.sql
-*.sqlite
+# ignore markup files
+*.md
