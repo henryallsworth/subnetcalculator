@@ -1,7 +1,6 @@
 <html>
 <head>
 <title>Visual Subnet Calculator</title>
-<link rel="canonical" href="https://www.subnetcalculator.org/">
 <script src="js/subnet.js" language="javascript" type="text/javascript"></script>
 <link href="css/subnet.css" rel="stylesheet" type="text/css" />
 <link href="css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
@@ -42,15 +41,13 @@
     </tr>
   </thead>     
 </table>
-
+<!-- Modified Show columns options below to toggleColumn function fix and removed divide/join checkboxes -->
 <p>Show columns: 
 <input type="checkbox" id="cb_subnet" checked onclick="toggleColumn(this)"><label for="cb_subnet">Subnet address</label>
-<input type="checkbox" id="cb_netmask" onclick="toggleColumn(this)"><label for="cb_netmask">Netmask</label>
+<input type="checkbox" id="cb_netmask" checked onclick="toggleColumn(this)"><label for="cb_netmask">Netmask</label>
 <input type="checkbox" id="cb_range" checked onclick="toggleColumn(this)"><label for="cb_range">Range of addresses</label>
 <input type="checkbox" id="cb_useable" checked onclick="toggleColumn(this)"><label for="cb_useable">Useable IPs</label>
 <input type="checkbox" id="cb_hosts" checked onclick="toggleColumn(this)"><label for="cb_hosts">Hosts</label>
-<input type="checkbox" id="cb_divide" checked onclick="toggleColumn(this)"><label for="cb_divide">Divide</label>
-<input type="checkbox" id="cb_join" checked onclick="toggleColumn(this)"><label for="cb_join">Join</label>
 </p>
 </form>
 
@@ -65,24 +62,15 @@ If you wish to save this subnetting for later, bookmark <a href="index.html" id=
 <hr noshade color="black" size="1">
 <br>
 
-<table class="calc" cellspacing="0" cellpadding="2">
-<colgroup>
-<col id="col_subnet">
-<col id="col_netmask" style="display: none">
-<col id="col_range">
-<col id="col_useable">
-<col id="col_hosts">
-<col id="col_divide">
-<col id="col_join">
-</colgroup>
+<table id="subnettable" class="calc" cellspacing="0" cellpadding="2">
 <thead>
 <tr>
-<td>Subnet address</td>
-<td>Netmask</td>
-<td>Range of addresses</td>
-<td>Useable IPs</td>
-<td>Hosts</td>
-<td>Divide</td>
+<td id="col_subnet">Subnet address</td>
+<td id="col_netmask">Netmask</td>
+<td id="col_range">Range of addresses</td>
+<td id="col_useable">Useable IPs</td>
+<td id="col_hosts">Hosts</td>
+<td id="col_divide">Divide</td>
 <td id="joinHeader">Join</td>
 </tr>
 </thead>

@@ -147,6 +147,7 @@ function createRow(calcbody, node, address, mask, labels, depth)
 
     /* subnet address */
     var newCell = document.createElement('TD');
+    newCell.className = "row_subnet"; // Added to support toggleColumn function fix
     newCell.appendChild(document.createTextNode(inet_ntoa(address)+'/'+mask));
     newRow.appendChild(newCell);
 
@@ -177,21 +178,25 @@ function createRow(calcbody, node, address, mask, labels, depth)
 
     /* netmask */
     var newCell = document.createElement('TD');
+    newCell.className = "row_netmask"; // Added to support toggleColumn function fix
     newCell.appendChild(document.createTextNode(inet_ntoa(subnet_netmask(mask))));
     newRow.appendChild(newCell);
 
     /* range of addresses */
     var newCell = document.createElement('TD');
+    newCell.className = "row_range"; // Added to support toggleColumn function fix
     newCell.appendChild(document.createTextNode(addressRange));
     newRow.appendChild(newCell);
 
     /* useable addresses */
     var newCell = document.createElement('TD');
+    newCell.className = "row_useable"; // Added to support toggleColumn function fix
     newCell.appendChild(document.createTextNode(useableRange));
     newRow.appendChild(newCell);
 
     /* Hosts */
     var newCell = document.createElement('TD');
+    newCell.className = "row_hosts"; // Added to support toggleColumn function fix
     newCell.appendChild(document.createTextNode(numHosts));
     newRow.appendChild(newCell);
 
@@ -419,16 +424,49 @@ function parseQueryString (str)
 
 window.onload = calcOnLoad;
 
+// Updated toggleColumn function to address issues with the column and headers not obeying show/hide request 
+
 function toggleColumn(cb)
 {
   var colName = 'col_'+(cb.id.substr(3));
-  var col = document.getElementById(colName);
+  switch (colName) {
+    case "col_subnet":
+        col_no = "0";
+        break;
+    case "col_netmask":
+        col_no = "1";
+        break;
+    case "col_range":
+        col_no = "2";
+        break;
+    case "col_useable":
+        col_no = "3";
+        break;
+    case "col_hosts":
+        col_no = "4";
+        break;
+  }
+  var tbl = document.getElementById('subnettable');
+  var rows = tbl.getElementsByTagName('tr');
 
-  if (cb.checked) {
-    col.style.display = 'block';
+   if (cb.checked) {
+    document.getElementById(colName).style.display = "table-cell";
+    for (var row = 0; row < rows.length; row++) {
+      var cols = rows[row].children;
+      if (col_no >= 0 && col_no < cols.length) {
+          var cell = cols[col_no];
+          if (cell.tagName == 'TD') cell.style.display = "table-cell";
+      }
+  }
   }
   else {
-    col.style.display = 'none';
+    document.getElementById(colName).style.display = "none";
+    for (var row = 0; row < rows.length; row++) {
+      var cols = rows[row].children;
+      if (col_no >= 0 && col_no < cols.length) {
+          var cell = cols[col_no];
+          if (cell.tagName == 'TD') cell.style.display = "none";
+      }
   }
-  recreateTables(); /* because IE draws lines all over the place with border-collapse */
+  }
 }
