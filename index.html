@@ -9,21 +9,6 @@
 <h1>Visual Subnet Calculator</h1>
 <p>Enter the network you wish to subnet.</p>
 
-<div class="form-floating mb-3">
-  <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-  <label for="floatingInput">Email address</label>
-</div>
-<div class="form-floating">
-  <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-  <label for="floatingPassword">Password</label>
-</div>
-
-<table class="table">
-<tr valign=top>
-<td>
-
-
-
 <form name="calc" onsubmit="updateNetwork(); return false;">
 
 <table class="table">
@@ -49,19 +34,13 @@
 <input type="checkbox" id="cb_useable" checked onclick="toggleColumn(this)"><label for="cb_useable">Useable IPs</label>
 <input type="checkbox" id="cb_hosts" checked onclick="toggleColumn(this)"><label for="cb_hosts">Hosts</label>
 </p>
+<p>Azure Options: 
+<input type="checkbox" id="cb_azgw" checked onclick="toggleColumn(this)"><label for="cb_azgw">Azure Gateway</label>
+</p>
 </form>
 
-<p>Click below to split and join subnets.<br>
-If you wish to save this subnetting for later, bookmark <a href="index.html" id="saveLink">this hyperlink</a>.</p>
-
-</td>
-</tr>
-</table>
-
-<br>
+<p>Click below to split and join subnets.</p>
 <hr noshade color="black" size="1">
-<br>
-
 <table id="subnettable" class="calc" cellspacing="0" cellpadding="2">
 <thead>
 <tr>
@@ -83,7 +62,8 @@ If you wish to save this subnetting for later, bookmark <a href="index.html" id=
 </tr-->
 </tbody>
 </table>
-  <p>Copyright &copy; 2009-2020 <a href="http://www.davidc.net/" target="_blank">David C. A. Croft</a>.
+  <p><br>If you wish to save this subnetting for later, bookmark <a href="index.html" id="saveLink">this hyperlink</a>.<br>
+  Copyright &copy; 2009-2020 <a href="http://www.davidc.net/" target="_blank">David C. A. Croft</a>.</p>
 <script src="/js/bootstrap.min.js" crossorigin="anonymous"></script>
 </body>
 </html>
